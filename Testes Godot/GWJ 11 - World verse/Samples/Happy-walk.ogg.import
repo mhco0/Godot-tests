@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Happy-walk.ogg-c9b4afdc91ca1bc737f6ef510a45bfa1.oggstr"
+
+[deps]
+
+source_file="res://Samples/Happy-walk.ogg"
+dest_files=[ "res://.import/Happy-walk.ogg-c9b4afdc91ca1bc737f6ef510a45bfa1.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

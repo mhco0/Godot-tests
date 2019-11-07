@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/BounceYoFrankie.ogg-a94f2d7a5ea8cfc464eee2278af6d092.oggstr"
+
+[deps]
+
+source_file="res://Samples/BounceYoFrankie.ogg"
+dest_files=[ "res://.import/BounceYoFrankie.ogg-a94f2d7a5ea8cfc464eee2278af6d092.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scenes/Scripts/Portal.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/protalpronto.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 57.2989
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.37037, 0.718518, 1 )
+colors = PoolColorArray( 0.203613, 0.181343, 0.181343, 1, 0.766113, 0.583694, 0.0448895, 1, 0.99401, 0.861151, 0.468727, 1, 0.996582, 0.282988, 0.0077858, 1 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+emission_shape = 1
+emission_sphere_radius = 22.6453
+flag_disable_z = true
+spread = 1.0
+initial_velocity = 500.0
+angular_velocity = 433.79
+orbit_velocity = 1.2
+orbit_velocity_random = 0.0
+color_ramp = SubResource( 3 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "PortalRotation"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Particles2D:process_material:emission_sphere_radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.01, 32.46 ]
+}
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -4.5392 )
+scale = Vector2( 0.590114, 0.615747 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( -3.80951, 66.4104 )
+amount = 30000
+preprocess = 1.0
+process_material = SubResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/PortalRotation = SubResource( 5 )
+[connection signal="body_entered" from="." to="." method="_on_Area2D_body_entered"]

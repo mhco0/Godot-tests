@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/TripleXGame.obj-e8d58b408e5d4268775931780e6392ef.mesh"
+
+[deps]
+
+files=[ "res://.import/TripleXGame.obj-e8d58b408e5d4268775931780e6392ef.mesh" ]
+
+source_file="res://TripleXGame(Game de terminal)/TripleXGame/Debug/TripleXGame.obj"
+dest_files=[ "res://.import/TripleXGame.obj-e8d58b408e5d4268775931780e6392ef.mesh", "res://.import/TripleXGame.obj-e8d58b408e5d4268775931780e6392ef.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true

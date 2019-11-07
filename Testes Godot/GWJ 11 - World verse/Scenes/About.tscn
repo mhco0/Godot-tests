@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scenes/Scripts/About.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/background.jpg" type="Texture" id=2]
+[ext_resource path="res://Sprites/ground#1.png" type="Texture" id=3]
+[ext_resource path="res://credits.PNG" type="Texture" id=4]
+[ext_resource path="res://Samples/Happy-walk.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Sprites/Buttons/Menu001.PNG" type="Texture" id=6]
+[ext_resource path="res://Sprites/Buttons/Menu002.PNG" type="Texture" id=7]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Camera2D
+
+var speed = 450
+
+func _ready():
+	set_process(true)
+
+func _process(delta):
+	set_offset(get_offset() + Vector2(1, 0) * speed * delta)"
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+current = true
+script = SubResource( 1 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.5, 1 )
+motion_mirroring = Vector2( 1024, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 514.003, 301.468 )
+scale = Vector2( 2.02452, 1.18842 )
+texture = ExtResource( 2 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 1024, 0 )
+
+[node name="Sprite2" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 515.511, 400.199 )
+scale = Vector2( 0.506876, 0.400891 )
+texture = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 560.738, 223.925 )
+scale = Vector2( 0.541837, 0.541837 )
+texture = ExtResource( 4 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_left = 7.0
+margin_top = 5.0
+margin_right = 232.0
+margin_bottom = 74.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture_normal = ExtResource( 6 )
+texture_hover = ExtResource( 7 )
+[connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]

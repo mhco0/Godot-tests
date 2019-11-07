@@ -1,0 +1,38 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Scenes/Scripts/Monster2.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Monster2/archon/archon0.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Monster2/archon/archon1.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Monster2/archon/archon-2.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Monster2/archon/archon-3.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Monster2/archon/archon-fire.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Monster2/archon/archon-ice.png" type="Texture" id=7]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 4.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 77.9476, 60.4836 )
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 1.81867, 1.81867 )
+frames = SubResource( 1 )
+animation = "Idle"
+playing = true
+flip_v = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.0956573, 27.7975 )
+shape = SubResource( 2 )
+[connection signal="body_entered" from="." to="." method="_on_Area2D_body_entered"]

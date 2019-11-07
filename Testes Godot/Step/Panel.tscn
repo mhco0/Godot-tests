@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Panel.gd" type="Script" id=1]
+[ext_resource path="res://Label.gd" type="Script" id=2]
+
+[node name="Panel" type="Panel"]
+margin_left = 420.019
+margin_top = 273.791
+margin_right = 552.019
+margin_bottom = 355.791
+script = ExtResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 19.7368
+margin_top = 16.0526
+margin_right = 118.737
+margin_bottom = 30.0526
+text = "Some text"
+script = ExtResource( 2 )
+
+[node name="Button" type="Button" parent="."]
+modulate = Color( 0.976471, 0.933333, 0.933333, 1 )
+self_modulate = Color( 0.917647, 0.866667, 0.866667, 1 )
+margin_left = 25.0
+margin_top = 48.0
+margin_right = 106.0
+margin_bottom = 68.0
+text = "Button"
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
